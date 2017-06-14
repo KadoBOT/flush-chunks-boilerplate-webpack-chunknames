@@ -2,11 +2,14 @@ import React from 'react'
 import universal from 'react-universal-component'
 import styles from '../css/App.css'
 
-const UniversalExample = universal(() => import(/* webpackChunkName: 'Chunk1' */ './Example'), {
-  resolve: () => require.resolveWeak('./Example'),
-  chunkName: 'Chunk1',
-  minDelay: 500
-})
+const UniversalExample = universal(
+  () => import(/* webpackChunkName: 'Chunk1' */ './Example'),
+  {
+    resolve: () => require.resolveWeak('./Example'),
+    chunkName: 'Chunk1',
+    minDelay: 500
+  }
+)
 
 export default class App extends React.Component {
   // set `show` to `true` to see dynamic chunks served by initial request
@@ -35,4 +38,3 @@ export default class App extends React.Component {
     )
   }
 }
-
